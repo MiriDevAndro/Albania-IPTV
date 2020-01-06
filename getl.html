@@ -22,7 +22,7 @@ var fu = extracted.split("\"")[3].replace(/\\/g,"");
 
 var mu = fu.split("/");
 var urlj = "http://"+mu[2]+"/get.php?username="+mu[4]+"&password="+mu[5]+"&type=m3u_plus&output=mpegts";
-window.location.replace(urlj);
+window.location.href = urlj;
 //document.getElementById("ok").innerHTML = urlj;
 } 
 
