@@ -4,17 +4,20 @@
     <head>
         <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
         <title>Run</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     </head>
     <body>
         <a id="ok">ok</a>
      <script>
-         
+         $.get('https://lokulokuapp.000webhostapp.com/api/get_category_posts/?api_key=cda11jcph4IA75L3TKJHDyn621iRvVrQadFqNPW8wkYousmGEB&id=43&page=2&count=15', function(responseText) {
+    alert(responseText);
+});
          
 function reqListener () 
 { 
 var miri = this.responseText;
 //var s = miri.split("channel_url");
-alert(miri);
+
 var extracted = miri.split(",").find(function(v){ 
 return v.indexOf("channel_url") > -1; }); 
 
