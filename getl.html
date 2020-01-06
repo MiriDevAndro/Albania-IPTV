@@ -9,6 +9,8 @@
         <a id="ok">ok</a>
      <script>
          var xmlHttp = new XMLHttpRequest();
+xmlHttp.open("GET", "https://lokulokuapp.000webhostapp.com/api/get_category_posts/?api_key=cda11jcph4IA75L3TKJHDyn621iRvVrQadFqNPW8wkYousmGEB&id=43&page=2&count=15", true);
+
          xmlHttp.onreadystatechange = function() {
  if (xmlHttp.readyState == 4 && xmlHttp.status == 200) 
 //document.getElementById("ok").innerHTML =xmlHttp.responseText; 
@@ -26,8 +28,6 @@ var urlj = "http://"+mu[2]+"/get.php?username="+mu[4]+"&password="+mu[5]+"&type=
 window.location.href =urlj;
 document.getElementById("ok").innerHTML = urlj;
 } 
-
-xmlHttp.open("GET", "https://lokulokuapp.000webhostapp.com/api/get_category_posts/?api_key=cda11jcph4IA75L3TKJHDyn621iRvVrQadFqNPW8wkYousmGEB&id=43&page=2&count=15", true);
 
 xmlHttp.send(null);
          
