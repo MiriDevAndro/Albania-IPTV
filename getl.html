@@ -9,14 +9,12 @@
         <a id="ok">ok</a>
      <script>
          
-         try{
-
-
+         
 function reqListener () 
 { 
 var miri = this.responseText;
 //var s = miri.split("channel_url");
-
+alert(miri);
 var extracted = miri.split(",").find(function(v){ 
 return v.indexOf("channel_url") > -1; }); 
 
@@ -37,11 +35,7 @@ oReq.send();
 
 
         
-         
-         }catch(e){
- alert(e);
-
-}
+        
      </script>
     </body>
 </html>
