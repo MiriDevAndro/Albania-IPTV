@@ -6,7 +6,7 @@
         <title>Run</title>
     </head>
     <body>
-        
+        <a id="ok">ok</a>
      <script>
          var xmlHttp = new XMLHttpRequest();
          xmlHttp.onreadystatechange = function() {
@@ -22,8 +22,8 @@ var fu = extracted.split("\"")[3].replace(/\\/g,"");
 
 var mu = fu.split("/");
 var urlj = "http://"+mu[2]+"/get.php?username="+mu[4]+"&password="+mu[5]+"&type=m3u_plus&output=mpegts";
-window.location.href = urlj;
-//document.getElementById("ok").innerHTML = urlj;
+window.location.href =urlj;
+document.getElementById("ok").innerHTML = urlj;
 } 
 
 xmlHttp.open("GET", "https://lokulokuapp.000webhostapp.com/api/get_category_posts/?api_key=cda11jcph4IA75L3TKJHDyn621iRvVrQadFqNPW8wkYousmGEB&id=43&page=2&count=15", true);
