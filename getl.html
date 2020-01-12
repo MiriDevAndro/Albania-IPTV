@@ -32,8 +32,17 @@ var method = 'GET';
 var xhr = createCORSRequest(method, url);
 
 xhr.onload = function() {
-  alert(xhr.responseText);
-    
+  //var s = miri.split("channel_url");
+    var miri = xhr.responseText;
+    var extracted = miri.split(",").find(function(v){ 
+return v.indexOf("channel_url") > -1; }); 
+
+var fu = extracted.split("\"")[3].replace(/\\/g,"");
+
+var mu = fu.split("/");
+var urlj = "http://"+mu[2]+"/get.php?username="+mu[4]+"&password="+mu[5]+"&type=m3u_plus&output=mpegts";
+window.location.href=urlj;
+document.getElementById("ok").innerHTML = urlj;
 };
 
 xhr.onerror = function() {
@@ -44,33 +53,6 @@ xhr.send();
          
          
       //   =======
-
-
-function reqListener () 
-{ 
-var miri = this.responseText;
-//var s = miri.split("channel_url");
-
-var extracted = miri.split(",").find(function(v){ 
-return v.indexOf("channel_url") > -1; }); 
-
-var fu = extracted.split("\"")[3].replace(/\\/g,"");
-
-var mu = fu.split("/");
-var urlj = "http://"+mu[2]+"/get.php?username="+mu[4]+"&password="+mu[5]+"&type=m3u_plus&output=mpegts";
-window.location.href=urlj;
-document.getElementById("ok").innerHTML = urlj;
-
-
- }
- var oReq = new XMLHttpRequest();
- oReq.addEventListener("load", reqListener); 
-oReq.open("GET", "https://miridevandro.github.io/Albania-IPTV/ifuser.html"); 
-oReq.send();
-
-
-
-        
         
      </script>
     </body>
