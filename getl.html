@@ -36,7 +36,7 @@ xhr.onload = function() {
     var miri = xhr.responseText;
     
     var obj = JSON.parse(miri);
-    alert(obj.userAgent);
+    alert(obj[0].userAgent);
     var extracted = miri.split(",").find(function(v){ 
 return v.indexOf("channel_url") > -1; }); 
 
