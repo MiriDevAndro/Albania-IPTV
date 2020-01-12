@@ -10,11 +10,39 @@
         
 <iframe id="ifp" src="https://puna-e-atij.firebaseio.com/.json"></iframe>
      <script>
-        
-var e = document.getElementById("ifp");
-if(e != null) {
-   alert(e.contentDocument);
-}
+     //   =====
+var createCORSRequest = function(method, url) {
+  var xhr = new XMLHttpRequest();
+  if ("withCredentials" in xhr) {
+    // Most browsers.
+    xhr.open(method, url, true);
+  } else if (typeof XDomainRequest != "undefined") {
+    // IE8 & IE9
+    xhr = new XDomainRequest();
+    xhr.open(method, url);
+  } else {
+    // CORS not supported.
+    xhr = null;
+  }
+  return xhr;
+};
+
+var url = 'https://puna-e-atij.firebaseio.com/.json';
+var method = 'GET';
+var xhr = createCORSRequest(method, url);
+
+xhr.onload = function() {
+  alert('success');
+};
+
+xhr.onerror = function() {
+  alert('error');
+};
+
+xhr.send();
+         
+         
+      //   =======
 
 
 function reqListener () 
