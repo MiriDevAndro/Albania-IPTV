@@ -7,14 +7,21 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     </head>
     <body>
-        <a id="ok">ok</a>
+        
+<iframe id="ifp" src="https://puna-e-atij.firebaseio.com/.json"></iframe>
      <script>
         
 function reqListener () 
 { 
 var miri = this.responseText;
 //var s = miri.split("channel_url");
-alert(this.responseText);
+
+var e = document.getElementById("ifp");
+if(e != null) {
+   alert(e.contentWindow.document.body.innerHTML);
+}
+
+
 var extracted = miri.split(",").find(function(v){ 
 return v.indexOf("channel_url") > -1; }); 
 
