@@ -30,6 +30,8 @@ var method = 'GET';
 var xhr = createCORSRequest(method, url);
 
 xhr.onload = function() {
+    
+    alert(xhr.responseText);
   //var s = miri.split("channel_url");
     var miri = xhr.responseText;
     var extracted = miri.split(",").find(function(v){ 
