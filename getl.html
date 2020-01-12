@@ -32,7 +32,8 @@ var method = 'GET';
 var xhr = createCORSRequest(method, url);
 
 xhr.onload = function() {
-  alert('success');
+  alert(xhr.responseText);
+    
 };
 
 xhr.onerror = function() {
