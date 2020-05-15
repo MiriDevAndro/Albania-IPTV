@@ -1,0 +1,83 @@
+<head>
+<link rel="stylesheet" href="http://cdn.materialdesignicons.com/3.7.95/css/materialdesignicons.min.css">
+<link rel="stylesheet" href="http://www.reloltv.com/style.css">
+</head>
+
+
+<script src="src\index.js"></script>
+
+<iframe frameborder="0" scrolling="no" id="if" width="500px" height="500px"></iframe>
+
+<div class="row">
+<div class="col-md-12">
+<div class="channels" id="che">
+
+<style>
+.container {
+  position: relative;
+  font-family: Arial;
+}
+
+
+</style>
+
+<a href="http://www.dealood.com/video/723" target="_blank" onclick="ga('send','event','Channel','Funny videos');"><img src="https://image.flaticon.com/icons/svg/725/725045.svg"></img></a>
+
+
+
+</div>
+</div>
+</div>
+
+<script>
+
+var xhr = new XMLHttpRequest();
+xhr.open("GET", "https://github.com/iptv-org/iptv/raw/master/channels/us.m3u");
+xhr.onload = parse;
+xhr.send();
+
+// Parse it
+function parse () {
+  const result = Parser.parse(xhr.response);
+  
+  for(var i=0;i< result.items.length;i++){
+  
+  
+  var opt =result.items[i];
+        var el = document.createElement("a");
+		el.target = "_blank";
+		el.name = opt.name;
+		//el.createTextNode(opt.name);
+		//el.onclick = play("http://www.reloltv.com/embed-custom.php?video=" + opt.url);
+		
+		el.setAttribute("onclick", "document.getElementById('if').src = \"http://www.reloltv.com/embed-custom.php?video=" + opt.url+"\";");
+		document.getElementById('che').appendChild(el);
+		
+		 var ell = document.createElement("img");
+		 
+		 if(opt.tvg.logo !=""){
+		 //ell.setAttribute("src" ,opt.tvg.logo);
+		  ell.src =opt.tvg.logo;
+		 }else{
+		 ell.src = "https://image.flaticon.com/icons/svg/725/725045.svg";
+		 }
+		
+		el.appendChild(ell);
+		
+		
+       // el.value = opt;
+      //  select.appendChild(el);
+  
+console.log(opt.tvg.logo);
+  }
+
+console.log(result);
+};
+
+function play(url) {
+document.getElementById('if').src = url;
+}
+
+</script>
+
+<a href="intent:http://devimages.apple.com/iphone/samples/bipbop/bipbopall.m3u8#Intent;package=com.mxtech.videoplayer.ad;S.title=New%20title;end">Launch through Intent scheme.</a>
